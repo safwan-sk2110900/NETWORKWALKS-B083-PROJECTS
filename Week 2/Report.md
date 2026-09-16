@@ -1,32 +1,28 @@
-```
-███████████████████████████████████████████████████████████
-   RECONNAISSANCE & NETWORK MAPPING REPORT
-   OSINT (MALTEGO)  ///  NETWORK MAPPING (ZENMAP)
-███████████████████████████████████████████████████████████
-```
+                           ```
+                           ███████████████████████████████████████████████████████████
+                              RECONNAISSANCE & NETWORK MAPPING REPORT
+                              OSINT (MALTEGO)  ///  NETWORK MAPPING (ZENMAP) // Nessus
+                           ███████████████████████████████████████████████████████████
+                           ```
 
-*A vintage dossier for a modern attack surface.*
-
-`CONFIDENTIAL — AUTHORIZED USE ONLY`
+`IMPORTANT — LEGAL AND ETHICAL USE ONLY`
 
 > **TEMPLATE NOTICE:** findings, evidence and narrative content have been removed. Replace every bracketed `[ placeholder ]` before this report is distributed.
 
 ---
 
-## 📋 Report Metadata
+## 📋 W2-PM3-FINAL | CYBERSECURITY | NETWORKWALKS
 
 | Field | Value |
 |---|---|
-| **Analyst / Operator** | `[ Your Full Name ]` |
-| **Role / Title** | `[ Your Role or Certification, e.g. Cybersecurity Analyst ]` |
-| **Engagement Name** | `[ Engagement / Program Name ]` |
-| **Client / Target Scope** | `networkwalks.com` — `[ + any additional in-scope assets ]` |
-| **Authorization on file?** | Yes — written approval secured from networkwalks.com |
-| **Authorization Reference** | `[ Reference # / date / signee of approval, if applicable ]` |
-| **Report Date** | `[ DD Month YYYY ]` |
-| **Tools / Modules** | Maltego (OSINT Reconnaissance) + Zenmap / Nmap (Network Mapping) |
-| **Phases Covered** | Phase 1 – OSINT Reconnaissance \| Phase 2 – Network Discovery & Mapping \| `[ additional phases ]` |
-| **Classification** | Confidential — Internal / Client Use Only |
+| **Analyst/Pentester** | `Safwan Abdurahiman Kavil` |
+| **Role / Title** | `Cybersecurity Intern` |
+| **Engagement Name** | `B083-Networkwalks` |
+| **Client / Target Scope** | `networkwalks.com` — `Home Lab` |
+| **Authorization on file?** | Yes — approval secured from networkwalks.com |
+| **Report Date** | `[ 16 September 2026 ]` |
+| **Tools / Modules** | Maltego (OSINT Reconnaissance) + Zenmap / Nmap (Network Mapping) + Nessus |
+| **Phases Covered** | Phase 1 – OSINT Reconnaissance \| Phase 2 – Network Discovery & Mapping \| `Phase 3 - Nessus/Maltego Mapping` |
 
 ---
 
@@ -49,13 +45,10 @@
 
 ## `[ SECTION 01 ]` Authorization & Liability Disclaimer
 
-This assessment was performed only against systems and assets for which written authorization was obtained — specifically **networkwalks.com** — and/or systems and devices that I own myself.
-
-> _[ List any additional in-scope systems, IP ranges or domains covered by this engagement here ]_
+This assessment was performed only against systems and assets for which written authorization was obtained — specifically **networkwalks.com** , **my own Home Lab** — and/or systems and devices that I own myself.
 
 All activities described in this report are conducted for authorized security assessment, education and research purposes only. Nothing in this document should be used to access, scan or test any system without explicit written permission from its owner. Every action taken is the responsibility of the person performing it. Misuse of these techniques may result in criminal charges, civil liability, loss of employment and a permanent record. In most jurisdictions, unauthorized access to a computer system is a crime even when no damage occurs.
 
-> _[ Add any client-specific confidentiality, NDA or handling instructions here ]_
 
 ---
 
