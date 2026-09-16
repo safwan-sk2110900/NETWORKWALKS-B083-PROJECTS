@@ -12,9 +12,8 @@
 
 ## 📋 W2-PM3-FINAL | CYBERSECURITY | NETWORKWALKS
 
-|   |   |
+| **Analyst/Pentester**  | `Safwan Abdurahiman Kavil`  |
 |---|---|
-| **Analyst/Pentester** | `Safwan Abdurahiman Kavil` |
 | **Role / Title** | `Cybersecurity Intern` |
 | **Engagement Name** | `B083-Networkwalks` |
 | **Client / Target Scope** | `networkwalks.com` — `Home Lab` |
