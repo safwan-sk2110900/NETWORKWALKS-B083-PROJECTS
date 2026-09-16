@@ -12,16 +12,27 @@
 
 ## 📋 W2-PM3-FINAL | CYBERSECURITY | NETWORKWALKS
 
-| **Analyst / Pentester** | Safwan Abdurahiman Kavil |
+### Engagement Information
+
+| **Item** | **Information** |
 |---|---|
+| **Analyst / Pentester** | Safwan Abdurahiman Kavil |
 | **Role / Title** | Cybersecurity Intern |
 | **Engagement Name** | B083-Networkwalks |
 | **Client / Target Scope** | `networkwalks.com` — Home Lab |
-| **Authorization on File** | Yes — approval secured from `networkwalks.com` |
+| **Authorization on File** | Yes — Approval secured from `networkwalks.com` |
 | **Report Date** | 16 September 2026 |
-| **Tools / Modules** | Maltego (OSINT Reconnaissance) · Zenmap / Nmap (Network Mapping) · Nessus |
-| **Phases Covered** | Phase 1 – OSINT Reconnaissance · Phase 2 – Network Discovery & Mapping · Phase 3 – Nessus / Maltego Mapping |
 
+### Assessment Scope
+
+| **Category** | **Details** |
+|---|---|
+| **OSINT / Reconnaissance** | Maltego |
+| **Network Discovery & Mapping** | Zenmap / Nmap |
+| **Vulnerability Assessment** | Nessus |
+| **Phase 1** | OSINT Reconnaissance |
+| **Phase 2** | Network Discovery & Mapping |
+| **Phase 3** | Nessus / Maltego Mapping |
 ---
 
 ## 🗂 Report Index
