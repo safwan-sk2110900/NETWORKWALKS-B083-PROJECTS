@@ -1,8 +1,8 @@
 
-                                        ██████████████████████████████████████████████████████████████████
-                                                    **RECONNAISSANCE & NETWORK MAPPING REPORT
-                                            OSINT (MALTEGO)  ///  NETWORK MAPPING (ZENMAP) // Nessus**
-                                        ██████████████████████████████████████████████████████████████████
+                    ██████████████████████████████████████████████████████████████████████████████████████████████████████
+                                                    RECONNAISSANCE & NETWORK MAPPING REPORT
+                                            OSINT (MALTEGO)  ///  NETWORK MAPPING (ZENMAP) // Nessus
+                    ██████████████████████████████████████████████████████████████████████████████████████████████████████
  
 `IMPORTANT — LEGAL AND ETHICAL USE ONLY`
 
