@@ -20,7 +20,6 @@
 | **Report Date** | `[ 16 September 2026 ]` |
 | **Tools / Modules** | Maltego (OSINT Reconnaissance) + Zenmap / Nmap (Network Mapping) + Nessus |
 | **Phases Covered** | Phase 1 – OSINT Reconnaissance \| Phase 2 – Network Discovery & Mapping \| `Phase 3 - Nessus/Maltego Mapping` |
-
 |---|---|
 
 ---
