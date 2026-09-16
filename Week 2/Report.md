@@ -1,9 +1,9 @@
-
+---
                     ██████████████████████████████████████████████████████████████████████████████████████████████████████
                                                     RECONNAISSANCE & NETWORK MAPPING REPORT
                                             OSINT (MALTEGO)  ///  NETWORK MAPPING (ZENMAP) // Nessus
                     ██████████████████████████████████████████████████████████████████████████████████████████████████████
- 
+---
 `IMPORTANT — LEGAL AND ETHICAL USE ONLY`
 
 > **TEMPLATE NOTICE:** findings, evidence and narrative content have been removed. Replace every bracketed `[ placeholder ]` before this report is distributed.
