@@ -12,7 +12,7 @@
 
 ## 📋 W2-PM3-FINAL | CYBERSECURITY | NETWORKWALKS
 
-| Field | Value |
+
 |---|---|
 | **Analyst/Pentester** | `Safwan Abdurahiman Kavil` |
 | **Role / Title** | `Cybersecurity Intern` |
