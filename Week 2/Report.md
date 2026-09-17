@@ -1,23 +1,23 @@
 ---
 
-<div align="center">
+
 
 ```text
 ╔══════════════════════════════════════════════════════════════╗
 ║                                                              ║
-║          ░▒▓█  B083-NETWORKWALKS  █▓▒░                      ║
+║          ░▒▓█  B083-NETWORKWALKS  █▓▒░                       ║
 ║                                                              ║
-║       R E C O N N A I S S A N C E  /  N E T M A P          ║
+║       R E C O N N A I S S A N C E  /  N E T M A P            ║
 ║                                                              ║
-║   [01] OSINT RECONNAISSANCE       :: MALTEGO                ║
-║   [02] NETWORK DISCOVERY & MAPPING:: ZENMAP / NMAP          ║
-║   [03] VULNERABILITY ASSESSMENT   :: NESSUS                 ║
+║   [01] OSINT RECONNAISSANCE       :: MALTEGO                 ║
+║   [02] NETWORK DISCOVERY & MAPPING:: ZENMAP / NMAP           ║
+║   [03] VULNERABILITY ASSESSMENT   :: NESSUS                  ║
 ║                                                              ║
 ║   ────────────────────────────────────────────────────────   ║
 ║                                                              ║
-║   STATUS :: AUTHORIZED                                         ║
-║   TARGET :: networkwalks.com / HOME LAB                       ║
-║   DATE   :: 16 SEPTEMBER 2026                                 ║
+║   STATUS :: AUTHORIZED                                       ║
+║   TARGET :: networkwalks.com / HOME LAB                      ║
+║   DATE   :: 16 SEPTEMBER 2026                                ║
 ║                                                              ║
 ╚══════════════════════════════════════════════════════════════╝
 `IMPORTANT — LEGAL AND ETHICAL USE ONLY`
