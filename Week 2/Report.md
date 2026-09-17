@@ -1,6 +1,6 @@
 # 🟩 B083-NETWORKWALKS
 
-## 🟪 RECONNAISSANCE & NETWORK MAPPING REPORT
+## 🟪 RECONNAISSANCE & NETWORK MAPPING & VULNERABILITY REPORT
 
 ---
 
@@ -61,7 +61,7 @@
 | **Vulnerability Assessment** | Nessus |
 | **Phase 1** | OSINT Reconnaissance |
 | **Phase 2** | Network Discovery & Mapping |
-| **Phase 3** | Nessus / Maltego Mapping |
+| **Phase 3** | Nessus Scanning|
 ---
 
 ## 🗂 Report Index
@@ -95,6 +95,16 @@ All activities described in this report are conducted for authorized security as
 > _[ Provide a 3–4 sentence, non-technical summary: what was assessed, the two methods used (OSINT via Maltego, network mapping via Zenmap), and the overall risk posture identified ]_
 
 > _[ State the number and severity breakdown of findings, e.g. "2 Medium, 3 Low" ]_
+
+An authorized security assessment was conducted against the lab environment using Maltego, Zenmap/Nmap, and Nessus to evaluate OSINT exposure, identify active network hosts, and assess system vulnerabilities.
+
+The Maltego OSINT assessment identified one publicly discoverable organizational email address, info@networkwalks.com. As this is a generic mailbox and no credentials or sensitive information were identified, the finding presents a Low risk, with its primary value being reconnaissance and potential exposure to phishing or spam.
+
+Using Zenmap, five active devices were identified within the authorized lab network: Kali Linux, Windows 7, Windows Server 2016, Windows 10, and the VirtualBox NAT Network gateway. Since the scan was limited to host discovery, these results represent network reconnaissance information rather than vulnerabilities.
+
+The Nessus scan produced a significantly larger set of findings on the Windows 7, Windows Server 2016, and Windows 10 systems. The results indicate issues including missing security updates, outdated components, and potentially insecure configurations, with the legacy Windows 7 system requiring particular attention.
+
+Overall, the assessment found that the main security exposure lies within the Windows systems identified by Nessus, rather than the OSINT or network-discovery findings. Remediation should focus on prioritizing high-severity vulnerabilities, applying security updates, reviewing configurations, and isolating or replacing unsupported legacy systems where appropriate.
 
 ---
 
