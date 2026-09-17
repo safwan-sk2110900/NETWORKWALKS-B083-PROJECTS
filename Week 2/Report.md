@@ -111,19 +111,26 @@ Overall, the assessment found that the main security exposure lies within the Wi
 ## `[ SECTION 03 ]` Scope & Objectives
 
 **Objectives**
-- ▸ Map the external OSINT footprint of the target using Maltego (domains, infrastructure, personas, related entities)
+- ▸ Map the external OSINT footprint of the authorized target using Maltego
 - ▸ Discover and map live hosts, services and topology on the in-scope network using Zenmap
-- ▸ `[ Add any additional engagement objective ]`
+- ▸ Scan and analyze vulnerabilities of the discovered network endpoints using Nessus
 
 **In Scope**
 > _[ List domains, IP ranges, subnets or entities explicitly authorized for this engagement ]_
-
+networkwalks.com
+10.0.0.0/24 NatNetwork
+HOMELAB domain of Windows Server 2016
 **Out of Scope**
 > _[ List anything explicitly excluded from this engagement ]_
+Web Applications
+Web Servers
+Other Networks (WAN, Internet)
 
 **Constraints / Rules of Engagement**
 > _[ Testing windows, rate limits, exploitation boundaries, notification requirements, etc. ]_
-
+Only allowed to scan email domains under explicit authorization from networkwalks.com
+Home network reconnaissance is limited under an isolated Virtual Box NatNetwork
+No exploitation allowed; only passive reconnaissance and vulnerability/risk analysis permitted. 
 ---
 
 ## `[ SECTION 04 ]` Methodology & Tools Used
@@ -134,8 +141,10 @@ The table below lists each tool used during this engagement and its purpose.
 |---|---|
 | **Maltego** | Graph-based OSINT reconnaissance — mapping domains, subdomains, infrastructure, email addresses, personas and related entities tied to the target. |
 | **Zenmap (Nmap GUI)** | Active network discovery and mapping — identifying live hosts, IP/MAC addresses, open ports, services and network topology. |
-| `[ Supporting OS ]` | `[ e.g. Kali Linux / Windows — operating environment used to run the above tools ]` |
-| `[ Additional tool ]` | `[ Purpose of any additional tool used in this engagement ]` |
+| **Nessus** | Passive network reconnaissance, vulnerability assessment, and analysis |
+| **Supporting OS** | Kali Linux and Windows 11 |
+| **Target OS** | Windows 7, Windows Server 2016, Windows 10 |
+
 
 ---
 
@@ -145,38 +154,70 @@ The table below lists each tool used during this engagement and its purpose.
 
 > _[ Describe the Maltego machines/transforms run, the seed entity used, and the general approach taken ]_
 
-- ▸ Domains / subdomains identified: `[ list ]`
-- ▸ Infrastructure (IPs, ASN, hosting) mapped: `[ list ]`
-- ▸ Email addresses / personas / related entities discovered: `[ list ]`
-- ▸ Notable relationships or pivot points surfaced by the graph: `[ list ]`
+- ▸ Domain: networkwalks.com
+- ▸ Infrastructure mapped: 1 email mapping
+- ▸ Email addresses: 1 email address (info@networkwalks.com)
+- ▸ Notable relationships or pivot points surfaced by the graph: Contact point email mapped to networkwalks.com
 
 ### 5.2 Network Mapping (Zenmap)
 
 > _[ Describe the scan type(s) run (e.g. ping scan, intense scan), the subnet targeted, and the process followed ]_
 
-- ▸ Subnet / range scanned: `[ e.g. 10.0.0.0/24 ]`
-- ▸ Live hosts identified: `[ list of IPs ]`
-- ▸ Notable open ports / services: `[ list ]`
-- ▸ Topology exported (Yes/No, format): `[ answer ]`
+- ▸ Subnet / range scanned: 10.0.0.0/24
+- ▸ Live hosts identified: 5
+- ▸ Notable open ports / services: 80, 135, 3389, 445
+- ▸ Topology exported (Yes/No, format): Yes, ".pdf"
 
 *Note: replace all bracketed values above with the actual subnet, hosts, ports and entities discovered during this engagement before this report is finalized.*
 
+### 5.3 Vulnerability Assessment (Nessus)
+- ▸ Hosts scanned: 10.0.0.10, 10.0.0.16, 10.0.0.7
+- ▸ Live hosts identified: 3
+- ▸ Situation: All 3 hosts need serious risk assessment and mitigation
+- ▸ Considerations: Legacy isolation, patching, responsible server configuration
 ---
 
 ## `[ SECTION 06 ]` Findings & Risk Analysis
 
-Based on the OSINT reconnaissance and network mapping activities, the following potential risks were identified.
+Based on the OSINT reconnaissance, network mapping activities, and vulnerability assessment, the following potential risks were identified.
+
+## 🔒 Maltego Risk Assessment — networkwalks.com
+
+**Scope:** networkwalks.com
 
 | # | Finding | Evidence / Observation | Potential Impact | Risk |
 |---|---|---|---|---|
-| 1 | `[ Finding title ]` | `[ What was observed ]` | `[ Why it matters ]` | `[ Crit/High/Med/Low ]` |
-| 2 | `[ Finding title ]` | `[ What was observed ]` | `[ Why it matters ]` | `[ Crit/High/Med/Low ]` |
-| 3 | `[ Finding title ]` | `[ What was observed ]` | `[ Why it matters ]` | `[ Crit/High/Med/Low ]` |
-| 4 | `[ Finding title ]` | `[ What was observed ]` | `[ Why it matters ]` | `[ Crit/High/Med/Low ]` |
+| 1 | **Email Identified** | maltego email transform returned an email address of "info@networkwalks.com" and the email ID exposes itself to networkwalks.com | Potential for exposure to phishing and spam. | 🟢 **Low** |
 
-**Risk level key:** ● Critical &nbsp;&nbsp;● High &nbsp;&nbsp;● Medium &nbsp;&nbsp;● Low
+## 🔒 Network Risk Assessment — Homelab Domain (10.0.0.0/24)
 
-*These findings are observations from reconnaissance and mapping activities, not confirmed exploitable vulnerabilities. No exploitation or vulnerability validation was performed as part of this engagement unless explicitly stated above. Further authorized testing would be required to confirm actual exploitability.*
+**Scope:** 5 live hosts | DC (Win Server, 2016), Win10 workstation, Win7/2008R2 legacy host, unidentified gateway/hypervisor, unclassified host.
+
+| # | Finding | Evidence / Observation | Potential Impact | Risk |
+|---|---|---|---|---|
+| 1 | **Domain Controller fully exposed** | `10.0.0.16` (DC01) has LDAP(389/3268), Kerberos(88), SMB(445), NetBIOS(139), RPC(135/593), WinRM(5985) all open to the whole /24. FQDN `homelab.local` disclosed. | A compromised host anywhere on this network has direct line-of-sight to AD for enumeration, Kerberoasting, and SMB relay/attack against the DC — the single point of failure for the domain. | 🔴 **Critical** |
+| 2 | **Unsupported / legacy OS in domain** | `10.0.0.7` fingerprints as **Windows 7 / Server 2008 R2** (96% confidence) — both long past end-of-life with no vendor patches. | No security updates means any newly disclosed SMB/RPC vuln (e.g., EternalBlue-class) is permanently exploitable; a soft entry point for lateral movement to the DC. | 🔴 **Critical** |
+| 3 | **RDP + database exposed on gateway/hypervisor host** | `10.0.0.1` exposes **RDP (3389)**, **PostgreSQL (5432)**, VMware auth (902/912), and IIS (80) simultaneously — an unusual, high-value multi-service host. | RDP is a top brute-force/ransomware entry vector; an internet- or LAN-reachable DB with no visible auth context risks direct data exposure or use as a pivot into the virtualization layer. | 🟠 **High** |
+| 4 | **Minimal patch/version visibility across endpoints** | `10.0.0.7` and `10.0.0.10` return only port 135 (RPC) with no service banners; DC's `microsoft-ds` reports as **Server 2008 R2–2012 build strings** despite guessed OS being 2016 — inconsistent SMB stack. | Blind spots prevent confirming patch level; mismatched SMB version strings suggest outdated or unpatched components that standard vuln scanning would need to verify directly. | 🟡 **Medium** |
+
+---
+**Immediate priorities:** (1) segment/firewall the DC from general workstation traffic, (2) isolate or upgrade the Windows 7 host — it should not be on this domain at all, (3) restrict 3389/5432 on `10.0.0.1` to trusted admin IPs only.
+
+## 🔒 Nessus Risk Assessment — Homelab Domain (10.0.0.0/24)
+
+**Scope:** 3 live hosts | DC (Win Server, 2016), Win10 workstation, Win7/2008R2 legacy host.
+
+| # | Finding | Evidence / Observation | Potential Impact | Risk |
+|---|---|---|---|---|
+| 1 | **** |  | | 🔴 **Critical** |
+| 2 | **** |  | | 🔴 **Critical** |
+| 3 | **** |  | | 🔴 **Critical** |
+| 4 | **** |  |  | 🟠 **High** |
+| 5 | **** |  |  | 🟡 **Medium** |
+
+**Risk level key:** 🔴 Critical &nbsp;&nbsp; 🟠 High &nbsp;&nbsp; 🟡 Medium &nbsp;&nbsp; 🟢 Low
+
+*These findings are observations from reconnaissance and mapping activities, not confirmed exploitable vulnerabilities. No exploitation was performed as part of this engagement unless explicitly stated above. Further authorized pentesting would be required to confirm actual exploitability.*
 
 ---
 
