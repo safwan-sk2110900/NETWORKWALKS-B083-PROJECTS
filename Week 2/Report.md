@@ -1,22 +1,38 @@
+# 🟩 B083-NETWORKWALKS
 
-# 🟩 `B083-NETWORKWALKS`
-
-## 🟪 **RECONNAISSANCE & NETWORK MAPPING REPORT**
-
-> 🟢 **01 // OSINT RECONNAISSANCE**  
-> &nbsp;&nbsp;&nbsp;&nbsp;↳ `MALTEGO`
->
-> 🔵 **02 // NETWORK DISCOVERY & MAPPING**  
-> &nbsp;&nbsp;&nbsp;&nbsp;↳ `ZENMAP / NMAP`
->
-> 🟠 **03 // VULNERABILITY ASSESSMENT**  
-> &nbsp;&nbsp;&nbsp;&nbsp;↳ `NESSUS`
-
-> 🟢 **STATUS:** `AUTHORIZED`  
-> 🔵 **TARGET:** `networkwalks.com / HOME LAB`  
-> 🟣 **DATE:** `16 SEPTEMBER 2026`
+## 🟪 RECONNAISSANCE & NETWORK MAPPING REPORT
 
 ---
+
+### 🟢 PHASE 01 — OSINT RECONNAISSANCE
+**Tool:** `MALTEGO`
+**Objective:** Gather open-source intelligence on target infrastructure, domains, and associated entities.
+
+---
+
+### 🔵 PHASE 02 — NETWORK DISCOVERY & MAPPING
+**Tool:** `ZENMAP / NMAP`
+**Objective:** Identify live hosts, open ports, running services, and network topology.
+
+---
+
+### 🟠 PHASE 03 — VULNERABILITY ASSESSMENT
+**Tool:** `NESSUS`
+**Objective:** Scan discovered assets for known vulnerabilities and misconfigurations.
+
+---
+
+## 📋 ENGAGEMENT DETAILS
+
+| Field | Value |
+|---|---|
+| 🟢 **Status** | `AUTHORIZED` |
+| 🔵 **Target** | `networkwalks.com / HOME LAB` |
+| 🟣 **Date** | `16 SEPTEMBER 2026` |
+
+---
+
+> ⚠️ *This report documents an authorized security assessment conducted strictly within the defined scope and rules of engagement.*
 `IMPORTANT — LEGAL AND ETHICAL USE ONLY`
 
 > **TEMPLATE NOTICE:** findings, evidence and narrative content have been removed. Replace every bracketed `[ placeholder ]` before this report is distributed.
