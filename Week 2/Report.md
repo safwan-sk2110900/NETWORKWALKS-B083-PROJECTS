@@ -1,9 +1,22 @@
----
-                    ██████████████████████████████████████████████████████████████████████████████████████████████████████
-                                                    RECONNAISSANCE & NETWORK MAPPING REPORT
-                                            OSINT (MALTEGO)  ///  NETWORK MAPPING (ZENMAP) // Nessus
-                    ██████████████████████████████████████████████████████████████████████████████████████████████████████
----
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                                                                              ║
+║   ░▒▓█  B083-NETWORKWALKS  █▓▒░                                              ║
+║                                                                              ║
+║              ╔══════════════════════════════════════════════╗                ║
+║              ║    RECONNAISSANCE & NETWORK MAPPING        ║                  ║
+║              ╚══════════════════════════════════════════════╝                ║
+║                                                                              ║
+║        [01] OSINT RECONNAISSANCE        →        MALTEGO                     ║
+║        [02] NETWORK DISCOVERY            →        ZENMAP / NMAP              ║
+║        [03] VULNERABILITY ASSESSMENT     →        NESSUS                     ║
+║                                                                              ║
+║   ─────────────────────────────────────────────────────────────────────────  ║
+║   CLASSIFICATION :: AUTHORIZED SECURITY ASSESSMENT                           ║
+║   TARGET       :: networkwalks.com / HOME LAB                                ║
+║   REPORT DATE  :: 16 SEP 2026                                                ║
+║   ─────────────────────────────────────────────────────────────────────────  ║
+║                                                                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
 `IMPORTANT — LEGAL AND ETHICAL USE ONLY`
 
 > **TEMPLATE NOTICE:** findings, evidence and narrative content have been removed. Replace every bracketed `[ placeholder ]` before this report is distributed.
