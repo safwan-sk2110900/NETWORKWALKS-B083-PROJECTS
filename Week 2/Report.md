@@ -20,6 +20,7 @@
 ║   DATE   :: 16 SEPTEMBER 2026                                ║
 ║                                                              ║
 ╚══════════════════════════════════════════════════════════════╝
+```
 `IMPORTANT — LEGAL AND ETHICAL USE ONLY`
 
 > **TEMPLATE NOTICE:** findings, evidence and narrative content have been removed. Replace every bracketed `[ placeholder ]` before this report is distributed.
