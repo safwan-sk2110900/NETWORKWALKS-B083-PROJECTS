@@ -222,6 +222,8 @@ Based on the OSINT reconnaissance, network mapping activities, and vulnerability
 1. **Review the public OSINT footprint** — Periodically audit what Maltego / public sources reveal about the domain networkwalks.com.
 2. **Reduce infrastructure exposure** — Based on the audit and periodic scanning, decide what infrastructure needs less exposure than required by implementing least privilege principle.
 
+---
+
 ### `Discovery Risks`
 | # | Finding Addressed | Recommendation | Why This Approach (Preserves Availability) |
 |---|---|---|---|
