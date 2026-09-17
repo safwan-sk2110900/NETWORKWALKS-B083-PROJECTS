@@ -189,9 +189,11 @@ Based on the OSINT reconnaissance, network mapping activities, and vulnerability
 |---|---|---|---|---|
 | 1 | **Email Identified** | maltego email transform returned an email address of "info@networkwalks.com" and the email ID exposes itself to networkwalks.com | Potential for exposure to phishing and spam. | 🟢 **Low** |
 
+**Risk level key:** 🔴 Critical &nbsp;&nbsp; 🟠 High &nbsp;&nbsp; 🟡 Medium &nbsp;&nbsp; 🟢 Low
+
 ## 🔒 Network Risk Assessment — Homelab Domain (10.0.0.0/24)
 
-**Scope:** 5 live hosts | DC (Win Server, 2016), Win10 workstation, Win7/2008R2 legacy host, unidentified gateway/hypervisor, unclassified host.
+**Scope:** 4 live remote VMs and 1 hypervisor | DC (Win Server, 2016), Win10 workstation, Win7/2008R2 legacy host, unidentified gateway/hypervisor, unclassified host.
 
 | # | Finding | Evidence / Observation | Potential Impact | Risk |
 |---|---|---|---|---|
@@ -201,23 +203,23 @@ Based on the OSINT reconnaissance, network mapping activities, and vulnerability
 | 4 | **Minimal patch/version visibility across endpoints** | `10.0.0.7` and `10.0.0.10` return only port 135 (RPC) with no service banners; DC's `microsoft-ds` reports as **Server 2008 R2–2012 build strings** despite guessed OS being 2016 — inconsistent SMB stack. | Blind spots prevent confirming patch level; mismatched SMB version strings suggest outdated or unpatched components that standard vuln scanning would need to verify directly. | 🟡 **Medium** |
 
 ---
-**Immediate priorities:** (1) segment/firewall the DC from general workstation traffic, (2) isolate or upgrade the Windows 7 host — it should not be on this domain at all, (3) restrict 3389/5432 on `10.0.0.1` to trusted admin IPs only.
+**Risk level key:** 🔴 Critical &nbsp;&nbsp; 🟠 High &nbsp;&nbsp; 🟡 Medium &nbsp;&nbsp; 🟢 Low
 
 ## 🔒 Nessus Risk Assessment — Homelab Domain (10.0.0.0/24)
 
-**Scope:** 3 live hosts | DC (Win Server, 2016), Win10 workstation, Win7/2008R2 legacy host.
+**Scope:** 3 live remote VMs and 1 hypervisor| DC (Win Server, 2016), Win10 workstation, Win7/2008R2 legacy host, gateway/hypervisor.
 
 | # | Finding | Evidence / Observation | Potential Impact | Risk |
 |---|---|---|---|---|
-| 1 | **** |  | | 🔴 **Critical** |
-| 2 | **** |  | | 🔴 **Critical** |
-| 3 | **** |  | | 🔴 **Critical** |
-| 4 | **** |  |  | 🟠 **High** |
-| 5 | **** |  |  | 🟡 **Medium** |
+| 1 | **Vulnerability in TCP/IP** | The TCP/IP stack in use on the remote Windows 7 host is affected by an integer overflow vulnerability. | Sending a continuous flow of specially crafted UDP packets to a closed port can result in arbitrary code execution in kernel mode. | 🔴 **Critical** |
+| 2 | **DNS Server RCE** | A remote code execution (RCE) vulnerability exists in Windows Domain Name System servers (Server 2016) when they fail to properly handle requests. | An attacker who successfully exploited the vulnerability could run arbitrary code in the context of the Local System Account. | 🔴 **Critical** |
+| 3 | **SMBv1 Improper Handling** | An information disclosure vulnerability (in Server 2016) exists in Microsoft Server Message Block 1.0 (SMBv1) due to improper handling of certain requests. | An unauthenticated, remote attacker can exploit this, via a specially crafted packet, to disclose sensitive information. (For instance, the Eternal Blue exploit leverages this vulnerability for unauthorized access.  | 🔴 **Critical** |
+| 4 | **Missing Crucial Patch** | The remote Windows 10 host is missing security update to latest patch of Oct 2025. It is, therefore, affected by multiple vulnerabilities | The system is vulnerable to various issues involving buffer overflow and secure boot misconfigurations which can be exploited by attacker for denial of service and malicious execution.| 🟠 **High** |
+| 5 | **IIS Path Disclosure** | The NAT Network gateway (10.0.0.1), corresponding to the VirtualBox host machine, reveals the physical path of the host's IIS webroot when a nonexistent page is requested. | Detailed error messages are useful for debugging but should not be exposed to remote clients, as they can reveal internal filesystem of core Host Machine information (in this case, my own PC) and assist further reconnaissance or exploitation. | 🟡 **Medium** |
 
 **Risk level key:** 🔴 Critical &nbsp;&nbsp; 🟠 High &nbsp;&nbsp; 🟡 Medium &nbsp;&nbsp; 🟢 Low
 
-*These findings are observations from reconnaissance and mapping activities, not confirmed exploitable vulnerabilities. No exploitation was performed as part of this engagement unless explicitly stated above. Further authorized pentesting would be required to confirm actual exploitability.*
+***These findings are observations from reconnaissance and mapping activities, not confirmed exploitable vulnerabilities. No exploitation was performed as part of this engagement unless explicitly stated above. Further authorized pentesting would be required to confirm actual exploitability.***
 
 ---
 
