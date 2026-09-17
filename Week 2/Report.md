@@ -1,14 +1,13 @@
 
+# B083-NETWORKWALKS
 
+## `RECONNAISSANCE & NETWORK MAPPING REPORT`
 
+> **OSINT** `//` **MALTEGO**  
+> **NETWORK DISCOVERY & MAPPING** `//` **ZENMAP / NMAP**  
+> **VULNERABILITY ASSESSMENT** `//` **NESSUS**
 
-# ╔══════════════════════════════════════════════════════════════╗
-# ║                 B083-NETWORKWALKS                            ║
-# ║                                                              ║
-# ║          RECONNAISSANCE & NETWORK MAPPING REPORT             ║
-# ╚══════════════════════════════════════════════════════════════╝
-#
-## `OSINT / MALTEGO`  •  `NETWORK MAPPING / ZENMAP-NMAP`  •  `NESSUS`
+---
 `IMPORTANT — LEGAL AND ETHICAL USE ONLY`
 
 > **TEMPLATE NOTICE:** findings, evidence and narrative content have been removed. Replace every bracketed `[ placeholder ]` before this report is distributed.
