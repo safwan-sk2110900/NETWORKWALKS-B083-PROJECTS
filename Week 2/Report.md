@@ -1,11 +1,20 @@
 
-# B083-NETWORKWALKS
+# 🟩 `B083-NETWORKWALKS`
 
-## `RECONNAISSANCE & NETWORK MAPPING REPORT`
+## 🟪 **RECONNAISSANCE & NETWORK MAPPING REPORT**
 
-> **OSINT** `//` **MALTEGO**  
-> **NETWORK DISCOVERY & MAPPING** `//` **ZENMAP / NMAP**  
-> **VULNERABILITY ASSESSMENT** `//` **NESSUS**
+> 🟢 **01 // OSINT RECONNAISSANCE**  
+> &nbsp;&nbsp;&nbsp;&nbsp;↳ `MALTEGO`
+>
+> 🔵 **02 // NETWORK DISCOVERY & MAPPING**  
+> &nbsp;&nbsp;&nbsp;&nbsp;↳ `ZENMAP / NMAP`
+>
+> 🟠 **03 // VULNERABILITY ASSESSMENT**  
+> &nbsp;&nbsp;&nbsp;&nbsp;↳ `NESSUS`
+
+> 🟢 **STATUS:** `AUTHORIZED`  
+> 🔵 **TARGET:** `networkwalks.com / HOME LAB`  
+> 🟣 **DATE:** `16 SEPTEMBER 2026`
 
 ---
 `IMPORTANT — LEGAL AND ETHICAL USE ONLY`
