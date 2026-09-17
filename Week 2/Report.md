@@ -268,12 +268,15 @@ All activity in this report was performed strictly within the scope authorized b
 
 | 📷 Screenshot 📷 |
 |---|
+| ## 📷 Maltego 📷 |
 | ![Maltego](images/maltego-1.png) |
 | ![Maltego](images/maltego-2.png) |
 | ![Maltego](images/maltego-3.png) |
 | ![Maltego](images/maltego-4.png) |
+| ## 📷 Zenmap 📷 |
 | ![Discovery](images/zenmap-1.png) |
 | ![Discovery](images/zenmap-2.png) |
+| ## 📷 Nessus 📷 |
 | ![Nessus](images/nessus-1.png) |
 | ![Nessus](images/nessus-2.png) |
 | ![Nessus](images/nessusrisk1.png) |
