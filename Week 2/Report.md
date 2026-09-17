@@ -35,7 +35,7 @@
 > ⚠️ *This report documents an authorized security assessment conducted strictly within the defined scope and rules of engagement.*
 `IMPORTANT — LEGAL AND ETHICAL USE ONLY`
 
-> **TEMPLATE NOTICE:** findings, evidence and narrative content have been removed. Replace every bracketed `[ placeholder ]` before this report is distributed.
+
 
 ---
 
@@ -66,18 +66,19 @@
 
 ## 🗂 Report Index
 
-1. Authorization & Liability Disclaimer
-2. Executive Summary
-3. Scope & Objectives
-4. Methodology & Tools Used
-5. Activities Performed
-   - 5.1 OSINT Reconnaissance (Maltego)
-   - 5.2 Network Mapping (Zenmap)
-6. Findings & Risk Analysis
-7. Recommendations
-8. Conclusion
-9. Evidence & Appendix
-10. Author & Project Information
+1. [Authorization & Liability Disclaimer](#section-01-authorization-liability-disclaimer)
+2. [Executive Summary](#section-02-executive-summary)
+3. [Scope & Objectives](#section-03-scope-objectives)
+4. [Methodology & Tools Used](#section-04-methodology-tools-used)
+5. [Activities Performed](#section-05-activities-performed)
+   - [5.1 OSINT Reconnaissance (Maltego)](#51-osint-reconnaissance-maltego)
+   - [5.2 Network Mapping (Zenmap)](#52-network-mapping-zenmap)
+   - [5.3 Vulnerability Assessment (Nessus)](#53-vulnerability-assessment-nessus)
+6. [Findings & Risk Analysis](#section-06-findings-risk-analysis)
+7. [Recommendations](#section-07-recommendations)
+8. [Conclusion](#section-08-conclusion)
+9. [Evidence & Appendix](#section-09-evidence-appendix)
+10. [Author & Project Information](#section-10-author-project-information)
 
 ---
 
@@ -92,9 +93,6 @@ All activities described in this report are conducted for authorized security as
 
 ## `[ SECTION 02 ]` Executive Summary
 
-> _[ Provide a 3–4 sentence, non-technical summary: what was assessed, the two methods used (OSINT via Maltego, network mapping via Zenmap), and the overall risk posture identified ]_
-
-> _[ State the number and severity breakdown of findings, e.g. "2 Medium, 3 Low" ]_
 
 An authorized security assessment was conducted against the lab environment using Maltego, Zenmap/Nmap, and Nessus to evaluate OSINT exposure, identify active network hosts, and assess system vulnerabilities.
 
@@ -116,18 +114,19 @@ Overall, the assessment found that the main security exposure lies within the Wi
 - ▸ Scan and analyze vulnerabilities of the discovered network endpoints using Nessus
 
 **In Scope**
-> _[ List domains, IP ranges, subnets or entities explicitly authorized for this engagement ]_
+
 networkwalks.com
 10.0.0.0/24 NatNetwork
 HOMELAB domain of Windows Server 2016
+
 **Out of Scope**
-> _[ List anything explicitly excluded from this engagement ]_
+
 Web Applications
 Web Servers
 Other Networks (WAN, Internet)
 
 **Constraints / Rules of Engagement**
-> _[ Testing windows, rate limits, exploitation boundaries, notification requirements, etc. ]_
+> 
 Only allowed to scan email domains under explicit authorization from networkwalks.com
 Home network reconnaissance is limited under an isolated Virtual Box NatNetwork
 No exploitation allowed; only passive reconnaissance and vulnerability/risk analysis permitted. 
@@ -152,8 +151,6 @@ The table below lists each tool used during this engagement and its purpose.
 
 ### 5.1 OSINT Reconnaissance (Maltego)
 
-> _[ Describe the Maltego machines/transforms run, the seed entity used, and the general approach taken ]_
-
 - ▸ Domain: networkwalks.com
 - ▸ Infrastructure mapped: 1 email mapping
 - ▸ Email addresses: 1 email address (info@networkwalks.com)
@@ -161,14 +158,10 @@ The table below lists each tool used during this engagement and its purpose.
 
 ### 5.2 Network Mapping (Zenmap)
 
-> _[ Describe the scan type(s) run (e.g. ping scan, intense scan), the subnet targeted, and the process followed ]_
-
 - ▸ Subnet / range scanned: 10.0.0.0/24
 - ▸ Live hosts identified: 5
 - ▸ Notable open ports / services: 80, 135, 3389, 445
 - ▸ Topology exported (Yes/No, format): Yes, ".pdf"
-
-*Note: replace all bracketed values above with the actual subnet, hosts, ports and entities discovered during this engagement before this report is finalized.*
 
 ### 5.3 Vulnerability Assessment (Nessus)
 - ▸ Hosts scanned: 10.0.0.10, 10.0.0.16, 10.0.0.7
@@ -219,26 +212,43 @@ Based on the OSINT reconnaissance, network mapping activities, and vulnerability
 
 **Risk level key:** 🔴 Critical &nbsp;&nbsp; 🟠 High &nbsp;&nbsp; 🟡 Medium &nbsp;&nbsp; 🟢 Low
 
-***These findings are observations from reconnaissance and mapping activities, not confirmed exploitable vulnerabilities. No exploitation was performed as part of this engagement unless explicitly stated above. Further authorized pentesting would be required to confirm actual exploitability.***
+***These findings are observations from reconnaissance, mapping, and scanning activities, not confirmed exploitable vulnerabilities. No exploitation was performed as part of this engagement unless explicitly stated above. Further authorized pentesting would be required to confirm actual exploitability.***
 
 ---
 
 ## `[ SECTION 07 ]` Recommendations
 
-1. **Review the public OSINT footprint** — `[ Recommendation detail — e.g. periodically audit what Maltego / public sources reveal about the organization ]`
-2. **Reduce infrastructure exposure** — `[ Recommendation detail ]`
-3. **Harden discovered services** — `[ Recommendation detail — based on ports/services found via Zenmap ]`
-4. **Monitor for unauthorized hosts** — `[ Recommendation detail ]`
-5. **Maintain network documentation** — `[ Recommendation detail ]`
-6. **Perform recurring authorized testing** — `[ Recommendation detail ]`
+### `Maltego Risks`
+1. **Review the public OSINT footprint** — Periodically audit what Maltego / public sources reveal about the domain networkwalks.com.
+2. **Reduce infrastructure exposure** — Based on the audit and periodic scanning, decide what infrastructure needs less exposure than required by implementing least privilege principle.
+
+### `Discovery Risks`
+| # | Finding Addressed | Recommendation | Why This Approach (Preserves Availability) |
+|---|---|---|---|
+| 1 | DC fully exposed on flat network | Place `10.0.0.16` behind host-based firewall rules restricting 389/445/3268/5985 to authorized admin subnets only. Leave 88 (Kerberos)/389 (LDAP) reachable from client subnet — domain auth must keep working. | Blocks lateral-movement/enumeration paths from workstations without breaking domain logon, DNS, or GPO — AD stays fully functional for legitimate clients. |
+| 2 | Windows 7 / Server 2008 R2 host (`10.0.0.7`) | Short-term: isolate on its own VLAN with only the specific ports/services it needs to talk to (no general LAN access). Medium-term: schedule replacement/upgrade — this OS cannot be secured long-term. | Isolation removes it as a pivot point immediately without shutting it down, keeping whatever workload it runs online while you plan the actual decommission. |
+| 3 | RDP + PostgreSQL exposed on `10.0.0.1` | Restrict RDP (3389) and PostgreSQL (5432) to a defined admin IP allow-list or jump host; keep IIS (80) open only if it's a required service. Enable MFA on RDP if not already. | Admins retain full remote access and DB connectivity from their own machines; only unrestricted/anonymous LAN exposure is removed — zero disruption to legitimate admin workflow. |
+| 4 | Unclear patch level / inconsistent SMB versions | Run an authenticated vulnerability scan (e.g., Nessus/OpenVAS credentialed scan) against DC and both workstations to confirm actual patch state before deciding on fixes. | Read-only verification step — no config changes, no downtime risk — but removes guesswork before touching production SMB/AD services. |
 
 ---
 
+### `Nessus Risks`
+| # | Finding Addressed | Recommendation |
+|---|---|---|
+| 1 | **Vulnerability in TCP/IP**  | Microsoft has released a set of patches for Windows Vista, 2008, 7, and 2008 R2. Apply the relevant patch update for short term use. However, isolation and upgrade to latest Windows OS is the long term recommended approach.|
+| 2 | **DNS Server RCE** | Apply the appropriate security update or mitigation as described in the Microsoft advisory. |
+| 3 | **SMBv1 Improper Handling** | Apply the applicable security update for your Windows version, in this case, Windows Server 2016: KB4019472|
+| 4 | **Missing Crucial Patch** | Apply security update to October Patch 2025 (Windows 10 22H2): 5066791 |
+| 5 | **IIS Path Disclosure** | Configure IIS (C:\Windows\System32\inetsrv\) to disable Detailed Errors for remote clients and use generic/custom error pages. Also review the application under C:\inetpub\wwwroot to ensure errors do not disclose local file paths. |
+
+---
 ## `[ SECTION 08 ]` Conclusion
 
-> _[ Summarize what was performed, the overall security posture observed, and the key takeaway from combining OSINT reconnaissance with active network mapping ]_
+This engagement combined OSINT reconnaissance (Maltego), active network mapping (Zenmap/Nmap), and credentialed vulnerability assessment (Nessus) against the networkwalks.com homelab. OSINT exposure was minimal (a single contact email). Network mapping identified 5 hosts — including a Windows Server 2016 DC, a Windows 10 workstation, and a legacy Windows 7 host — with RDP, SMB, LDAP, Kerberos, and a database exposed on a flat, unsegmented network. Nessus confirmed these exposures as real, exploitable vulnerabilities: a kernel-level TCP/IP flaw on Windows 7, DNS Server RCE and SMBv1 disclosure on the DC, missing patches on Windows 10, and IIS path disclosure on the gateway.
 
-> _[ Reaffirm that all activity was performed within the authorized scope granted by networkwalks.com ]_
+Overall, the security posture is **weak to moderate**: the Domain Controller and legacy endpoints are directly reachable and unpatched, placing the core of the domain at meaningful risk. The key takeaway is that each phase validated the next — OSINT mapped the external footprint, network scanning revealed the internal attack surface, and vulnerability scanning proved that surface maps to real, exploitable risk. Network segmentation, patching, and least-privilege exposure are the priority fixes.
+
+All activity in this report was performed strictly within the scope authorized by networkwalks.com. No exploitation was conducted; confirming exploitability would require a separately authorized penetration test.
 
 ---
 
@@ -257,12 +267,11 @@ Based on the OSINT reconnaissance, network mapping activities, and vulnerability
 ## `[ SECTION 10 ]` Author & Project Information
 
 **👤 Author**
-`[ Your Full Name ]` — `[ Your Title / Certification ]`
-LinkedIn: `[ your LinkedIn URL ]`
+`Safwan Abdurahiman Kavil` — `CompTIA Security+`
+LinkedIn: `www.linkedin.com/in/safwan-abdurahiman-kavil-sak03`
 
 **📌 Project Information**
-Program: `[ Program / Engagement Name ]` | Week / Phase: `[ # ]` | Repository: `[ link, if applicable ]`
+Program: `W2-PM3-FINAL` | Week / Phase: `[2]`
 
 ---
 
-`— END OF TEMPLATE —`
