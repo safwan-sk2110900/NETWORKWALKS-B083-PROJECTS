@@ -266,21 +266,21 @@ All activity in this report was performed strictly within the scope authorized b
 <a id="s9"></a>
 ## `[ SECTION 09 ]` Evidence & Appendix
 
-| Screenshot |
+| 📷 Screenshot 📷 |
 |---|
-| 📷 ![Maltego](images/maltego-1.png) |
-| 📷 ![Maltego](images/maltego-2.png) |
-| 📷 ![Maltego](images/maltego-3.png) |
-| 📷 ![Maltego](images/maltego-4.png) |
-| 📷 ![Discovery](images/zenmap-1.png) |
-| 📷 ![Discovery](images/zenmap-2.png) |
-| 📷 ![Nessus](images/nessus-1.png) |
-| 📷 ![Nessus](images/nessus-2.png) |
-| 📷 ![Nessus](images/nessusrisk1.png) |
-| 📷 ![Nessus](images/nessusrisk2.png) |
-| 📷 ![Nessus](images/nessusrisk3.png) |
-| 📷 ![Nessus](images/nessusrisk4.png) |
-| 📷 ![Nessus](images/nessusrisk5.png) |
+| ![Maltego](images/maltego-1.png) |
+| ![Maltego](images/maltego-2.png) |
+| ![Maltego](images/maltego-3.png) |
+| ![Maltego](images/maltego-4.png) |
+| ![Discovery](images/zenmap-1.png) |
+| ![Discovery](images/zenmap-2.png) |
+| ![Nessus](images/nessus-1.png) |
+| ![Nessus](images/nessus-2.png) |
+| ![Nessus](images/nessusrisk1.png) |
+| ![Nessus](images/nessusrisk2.png) |
+| ![Nessus](images/nessusrisk3.png) |
+| ![Nessus](images/nessusrisk4.png) |
+| ![Nessus](images/nessusrisk5.png) |
 
 ---
 
