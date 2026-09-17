@@ -2,25 +2,13 @@
 
 
 
-```
-╔══════════════════════════════════════════════════════════════╗
-║                                                              ║
-║          ░▒▓█  B083-NETWORKWALKS  █▓▒░                       ║
-║                                                              ║
-║       R E C O N N A I S S A N C E  /  N E T M A P            ║
-║                                                              ║
-║   [01] OSINT RECONNAISSANCE       :: MALTEGO                 ║
-║   [02] NETWORK DISCOVERY & MAPPING:: ZENMAP / NMAP           ║
-║   [03] VULNERABILITY ASSESSMENT   :: NESSUS                  ║
-║                                                              ║
-║   ────────────────────────────────────────────────────────   ║
-║                                                              ║
-║   STATUS :: AUTHORIZED                                       ║
-║   TARGET :: networkwalks.com / HOME LAB                      ║
-║   DATE   :: 16 SEPTEMBER 2026                                ║
-║                                                              ║
-╚══════════════════════════════════════════════════════════════╝
-```
+# ╔══════════════════════════════════════════════════════════════╗
+# ║                 B083-NETWORKWALKS                            ║
+# ║                                                              ║
+# ║          RECONNAISSANCE & NETWORK MAPPING REPORT             ║
+# ╚══════════════════════════════════════════════════════════════╝
+#
+## `OSINT / MALTEGO`  •  `NETWORK MAPPING / ZENMAP-NMAP`  •  `NESSUS`
 `IMPORTANT — LEGAL AND ETHICAL USE ONLY`
 
 > **TEMPLATE NOTICE:** findings, evidence and narrative content have been removed. Replace every bracketed `[ placeholder ]` before this report is distributed.
