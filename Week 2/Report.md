@@ -66,22 +66,23 @@
 
 ## 🗂 Report Index
 
-1. [Authorization & Liability Disclaimer](#section-01-authorization-liability-disclaimer)
-2. [Executive Summary](#section-02-executive-summary)
-3. [Scope & Objectives](#section-03-scope-objectives)
-4. [Methodology & Tools Used](#section-04-methodology-tools-used)
-5. [Activities Performed](#section-05-activities-performed)
+1. [Authorization & Liability Disclaimer](#s1)
+2. [Executive Summary](#s2)
+3. [Scope & Objectives](#s3)
+4. [Methodology & Tools Used](#s4)
+5. [Activities Performed](#s5)
    - [5.1 OSINT Reconnaissance (Maltego)](#51-osint-reconnaissance-maltego)
    - [5.2 Network Mapping (Zenmap)](#52-network-mapping-zenmap)
    - [5.3 Vulnerability Assessment (Nessus)](#53-vulnerability-assessment-nessus)
-6. [Findings & Risk Analysis](#section-06-findings-risk-analysis)
-7. [Recommendations](#section-07-recommendations)
-8. [Conclusion](#section-08-conclusion)
-9. [Evidence & Appendix](#section-09-evidence-appendix)
-10. [Author & Project Information](#section-10-author-project-information)
+6. [Findings & Risk Analysis](#s6)
+7. [Recommendations](#s7)
+8. [Conclusion](#s8)
+9. [Evidence & Appendix](#s9)
+10. [Author & Project Information](#s10)
 
 ---
 
+<a id="s1"></a>
 ## `[ SECTION 01 ]` Authorization & Liability Disclaimer
 
 This assessment was performed only against systems and assets for which written authorization was obtained — specifically **networkwalks.com** , **my own Home Lab** — and/or systems and devices that I own myself.
@@ -91,6 +92,7 @@ All activities described in this report are conducted for authorized security as
 
 ---
 
+<a id="s2"></a>
 ## `[ SECTION 02 ]` Executive Summary
 
 
@@ -106,6 +108,7 @@ Overall, the assessment found that the main security exposure lies within the Wi
 
 ---
 
+<a id="s3"></a>
 ## `[ SECTION 03 ]` Scope & Objectives
 
 **Objectives**
@@ -132,6 +135,7 @@ Home network reconnaissance is limited under an isolated Virtual Box NatNetwork
 No exploitation allowed; only passive reconnaissance and vulnerability/risk analysis permitted. 
 ---
 
+<a id="s4"></a>
 ## `[ SECTION 04 ]` Methodology & Tools Used
 
 The table below lists each tool used during this engagement and its purpose.
@@ -147,6 +151,7 @@ The table below lists each tool used during this engagement and its purpose.
 
 ---
 
+<a id="s5"></a>
 ## `[ SECTION 05 ]` Activities Performed
 
 ### 5.1 OSINT Reconnaissance (Maltego)
@@ -170,6 +175,7 @@ The table below lists each tool used during this engagement and its purpose.
 - ▸ Considerations: Legacy isolation, patching, responsible server configuration
 ---
 
+<a id="s6"></a>
 ## `[ SECTION 06 ]` Findings & Risk Analysis
 
 Based on the OSINT reconnaissance, network mapping activities, and vulnerability assessment, the following potential risks were identified.
@@ -216,6 +222,7 @@ Based on the OSINT reconnaissance, network mapping activities, and vulnerability
 
 ---
 
+<a id="s7"></a>
 ## `[ SECTION 07 ]` Recommendations
 
 ### `Maltego Risks`
@@ -244,6 +251,8 @@ Based on the OSINT reconnaissance, network mapping activities, and vulnerability
 | 5 | **IIS Path Disclosure** | Configure IIS (C:\Windows\System32\inetsrv\) to disable Detailed Errors for remote clients and use generic/custom error pages. Also review the application under C:\inetpub\wwwroot to ensure errors do not disclose local file paths. |
 
 ---
+
+<a id="s8"></a>
 ## `[ SECTION 08 ]` Conclusion
 
 This engagement combined OSINT reconnaissance (Maltego), active network mapping (Zenmap/Nmap), and credentialed vulnerability assessment (Nessus) against the networkwalks.com homelab. OSINT exposure was minimal (a single contact email). Network mapping identified 5 hosts — including a Windows Server 2016 DC, a Windows 10 workstation, and a legacy Windows 7 host — with RDP, SMB, LDAP, Kerberos, and a database exposed on a flat, unsegmented network. Nessus confirmed these exposures as real, exploitable vulnerabilities: a kernel-level TCP/IP flaw on Windows 7, DNS Server RCE and SMBv1 disclosure on the DC, missing patches on Windows 10, and IIS path disclosure on the gateway.
@@ -254,6 +263,7 @@ All activity in this report was performed strictly within the scope authorized b
 
 ---
 
+<a id="s9"></a>
 ## `[ SECTION 09 ]` Evidence & Appendix
 
 | Screenshot |
@@ -266,6 +276,7 @@ All activity in this report was performed strictly within the scope authorized b
 
 ---
 
+<a id="s10"></a>
 ## `[ SECTION 10 ]` Author & Project Information
 
 **👤 Author**
