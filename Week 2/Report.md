@@ -268,11 +268,19 @@ All activity in this report was performed strictly within the scope authorized b
 
 | Screenshot |
 |---|
-| 📷 `[ Insert screenshot — Maltego — domain/infrastructure graph ]` |
-| 📷 `[ Insert screenshot — Maltego — entity/persona graph ]` |
-| 📷 `[ Insert screenshot — Zenmap — host discovery scan ]` |
-| 📷 `[ Insert screenshot — Zenmap — network topology export ]` |
-| 📷 `[ Insert screenshot — Additional evidence ]` |
+| 📷 ![Maltego](images/maltego-1.png) |
+| 📷 ![Maltego](images/maltego-2.png) |
+| 📷 ![Maltego](images/maltego-3.png) |
+| 📷 ![Maltego](images/maltego-4.png) |
+| 📷 ![Discovery](images/zenmap-1.png) |
+| 📷 ![Discovery](images/zenmap-2.png) |
+| 📷 ![Nessus](images/nessus-1.png) |
+| 📷 ![Nessus](images/nessus-2.png) |
+| 📷 ![Nessus](images/nessusrisk1.png) |
+| 📷 ![Nessus](images/nessusrisk2.png) |
+| 📷 ![Nessus](images/nessusrisk3.png) |
+| 📷 ![Nessus](images/nessusrisk4.png) |
+| 📷 ![Nessus](images/nessusrisk5.png) |
 
 ---
 
