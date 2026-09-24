@@ -97,15 +97,7 @@ All activities described in this report are conducted for authorized security as
 ## `[ SECTION 02 ]` Executive Summary
 
 
-An authorized security assessment was conducted against the lab environment using Maltego, Zenmap/Nmap, and Nessus to evaluate OSINT exposure, identify active network hosts, and assess system vulnerabilities.
 
-The Maltego OSINT assessment identified one publicly discoverable organizational email address, info@networkwalks.com. As this is a generic mailbox and no credentials or sensitive information were identified, the finding presents a Low risk, with its primary value being reconnaissance and potential exposure to phishing or spam.
-
-Using Zenmap, five active devices were identified within the authorized lab network: Kali Linux, Windows 7, Windows Server 2016, Windows 10, and the VirtualBox NAT Network gateway. Since the scan was limited to host discovery, these results represent network reconnaissance information rather than vulnerabilities.
-
-The Nessus scan produced a significantly larger set of findings on the Windows 7, Windows Server 2016, and Windows 10 systems. The results indicate issues including missing security updates, outdated components, and potentially insecure configurations, with the legacy Windows 7 system requiring particular attention.
-
-Overall, the assessment found that the main security exposure lies within the Windows systems identified by Nessus, rather than the OSINT or network-discovery findings. Remediation should focus on prioritizing high-severity vulnerabilities, applying security updates, reviewing configurations, and isolating or replacing unsupported legacy systems where appropriate.
 
 ---
 
@@ -220,8 +212,6 @@ Based on the three password cracking activities, the following potential risks w
 ## `[ SECTION 07 ]` Recommendations
 
 
-1. **Review the public OSINT footprint** — Periodically audit what Maltego / public sources reveal about the domain networkwalks.com.
-2. **Reduce infrastructure exposure** — Based on the audit and periodic scanning, decide what infrastructure needs less exposure than required by implementing least privilege principle.
 
 ---
 
@@ -229,44 +219,41 @@ Based on the three password cracking activities, the following potential risks w
 <a id="s8"></a>
 ## `[ SECTION 08 ]` Conclusion
 
-This engagement combined OSINT reconnaissance (Maltego), active network mapping (Zenmap/Nmap), and credentialed vulnerability assessment (Nessus) against the networkwalks.com homelab. OSINT exposure was minimal (a single contact email). Network mapping identified 5 hosts — including a Windows Server 2016 DC, a Windows 10 workstation, and a legacy Windows 7 host — with RDP, SMB, LDAP, Kerberos, and a database exposed on a flat, unsegmented network. Nessus confirmed these exposures as real, exploitable vulnerabilities: a kernel-level TCP/IP flaw on Windows 7, DNS Server RCE and SMBv1 disclosure on the DC, missing patches on Windows 10, and IIS path disclosure on the gateway.
 
-Overall, the security posture is **weak to moderate**: the Domain Controller and legacy endpoints are directly reachable and unpatched, placing the core of the domain at meaningful risk. The key takeaway is that each phase validated the next — OSINT mapped the external footprint, network scanning revealed the internal attack surface, and vulnerability scanning proved that surface maps to real, exploitable risk. Network segmentation, patching, and least-privilege exposure are the priority fixes.
-
-All activity in this report was performed strictly within the scope authorized by networkwalks.com. No exploitation was conducted; confirming exploitability would require a separately authorized penetration test.
 
 ---
 
 <a id="s9"></a>
 ## `[ SECTION 09 ]` Evidence & Appendix
 
-### 📷 Maltego
+### 📷 JTR Cracking
 
 | Screenshot |
 |---|
-| ![Maltego](images/maltego-1.png) |
-| ![Maltego](images/maltego-2.png) |
-| ![Maltego](images/maltego-3.png) |
-| ![Maltego](images/maltego-4.png) |
+| ![JTR](images/JTR-1.png) |
+| ![JTR](images/JTR-2.png) |
+| ![JTR](images/JTR-3.png) |
+| ![JTR](images/JTR-4.png) |
 
-### 📷 Zenmap
-
-| Screenshot |
-|---|
-| ![Discovery](images/zenmap-1.png) |
-| ![Discovery](images/zenmap-2.png) |
-
-### 📷 Nessus
+### 📷 NetworkWalks Cracking
 
 | Screenshot |
 |---|
-| ![Nessus](images/nessus-1.png) |
-| ![Nessus](images/nessus-2.png) |
-| ![Nessus](images/nessusrisk1.png) |
-| ![Nessus](images/nessusrisk2.png) |
-| ![Nessus](images/nessusrisk3.png) |
-| ![Nessus](images/nessusrisk4.png) |
-| ![Nessus](images/nessusrisk5.png) |
+| ![NW](images/NW-1.png) |
+| ![NW](images/NW-2.png) |
+| ![NW](images/NW-3.png) |
+| ![NW](images/NW-4.png) |
+
+### 📷 AI Cracking
+
+| Screenshot |
+|---|
+| ![AI](images/MCP-1.png) |
+| ![AI](images/MCP-2.png) |
+| ![AI](images/MCP-3.png) |
+| ![AI](images/MCP-4.png) |
+| ![AI](images/MCP-5.png) |
+
 
 ---
 
