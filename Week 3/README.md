@@ -72,9 +72,9 @@
 3. [Scope & Objectives](#s3)
 4. [Methodology & Tools Used](#s4)
 5. [Activities Performed](#s5)
-   - [5.1 Password Cracking with John the Ripper](#51-osint-reconnaissance-maltego)
-   - [5.2 NetworkWalks Cracking Tools](#52-network-mapping-zenmap)
-   - [5.3 Vulnerability Assessment (Nessus)](#53-vulnerability-assessment-nessus)
+   - [5.1 Password Cracking with John the Ripper](#51-password-cracking-with-john-the-ripper)
+   - [5.2 NetworkWalks Cracking Tools](#52-networkwalks-cracking-tools)
+   - [5.3 AI Based Password Cracking](#53-ai-based-password-cracking)
 6. [Findings & Risk Analysis](#s6)
 7. [Recommendations](#s7)
 8. [Conclusion](#s8)
@@ -96,6 +96,11 @@ All activities described in this report are conducted for authorized security as
 <a id="s2"></a>
 ## `[ SECTION 02 ]` Executive Summary
 
+An authorized password-cracking assessment was conducted against three protected networkwalks PDF files using three distinct methods: John the Ripper (JTR), NetworkWalks' in-house hash/password cracking tools, and an AI-driven setup combining Claude, Hexstrike MCP, and JTR.
+
+All three PDF files were cracked successfully, and in every case the password was recovered **instantly** — indicating each password was weak, short, and/or drawn from a common dictionary/wordlist. This held true regardless of method: the manual JTR approach, the in-house tooling, and the autonomous AI-agent approach all achieved the same trivial outcome, with the AI-based method additionally demonstrating that password recovery can now be fully automated end-to-end with no manual cracking expertise required.
+
+Overall, the assessment found that the core risk lies not in any single tool's capability, but in **weak password practices** applied to the protected files themselves. The consistent, near-instant success across all three methods — including a fully autonomous AI agent — indicates that current password strength on these files provides negligible real-world protection. Remediation should focus on enforcing strong password policy for protected documents, rather than on the cracking tools or methods used to test them.
 
 
 
@@ -212,6 +217,12 @@ Based on the three password cracking activities, the following potential risks w
 <a id="s7"></a>
 ## `[ SECTION 07 ]` Recommendations
 
+| # | Finding Addressed | Recommendation |
+|---|---|---|
+| 1 | Password cracked instantly via John the Ripper (PDF1) | Enforce a minimum password policy (12+ characters, mixed case, numbers, symbols) for all protected PDF files; avoid dictionary words or predictable patterns. |
+| 2 | Password cracked very easily via NetworkWalks tools (PDF2) | Treat in-house cracking tool availability as a signal — periodically test internal document passwords against the same tooling to catch weak passwords before an attacker does. |
+| 3 | Password cracked instantly via AI-based (Claude + Hexstrike MCP + JTR) automation (PDF3) | Recognize that AI-assisted cracking lowers the skill barrier significantly; weak passwords are no longer a defense even against non-expert attackers. Prioritize passphrase-based or password-manager-generated credentials over human-memorable passwords. |
+| 4 | Overall pattern across all three tests | Where document sensitivity warrants it, use document encryption backed by strong, randomly generated passwords (or key-based protection) rather than relying on PDF password protection alone, as PDF password schemes are well-supported by cracking tools. |
 
 
 ---
@@ -220,6 +231,11 @@ Based on the three password cracking activities, the following potential risks w
 <a id="s8"></a>
 ## `[ SECTION 08 ]` Conclusion
 
+This engagement tested password protection on three networkwalks PDF files using three progressively different approaches: manual cracking with John the Ripper, NetworkWalks' in-house hash/password cracking tools, and a fully autonomous AI-driven setup (Claude + Hexstrike MCP + JTR). All three files were cracked, and in every case the password was recovered near-instantly, confirming that weak, guessable passwords were in use across all tested documents.
+
+The key takeaway is that the **cracking method mattered less than the password strength itself** — even the most basic tool succeeded as quickly as the AI-driven automated agent, showing that current password practices offer little to no real protection against any of the tested approaches. The AI-based phase in particular highlights an evolving risk: autonomous agents can now perform end-to-end password recovery with minimal human input, meaning weak passwords are exploitable even by attackers without deep technical expertise.
+
+All activity in this report was performed strictly within the scope authorized by networkwalks.com, against files owned/provided for this authorized assessment. No exploitation was conducted beyond the password-cracking activities explicitly documented above.
 
 
 ---
