@@ -121,9 +121,10 @@ Web Servers
 Other Networks (WAN, Internet)
 
 **Constraints / Rules of Engagement**
-> 
+
 Only allowed to crack PDF files under explicit authorization from networkwalks.com.
 Cracking will be isolated within a possible VM machine network.
+
 ---
 
 <a id="s4"></a>
