@@ -129,10 +129,11 @@ Web Servers
 Other Networks (WAN, Internet)
 
 **Constraints / Rules of Engagement**
-> 
+
 Only allowed to scan email domains under explicit authorization from networkwalks.com
 Home network reconnaissance is limited under an isolated Virtual Box NatNetwork
 No exploitation allowed; only passive reconnaissance and vulnerability/risk analysis permitted. 
+
 ---
 
 <a id="s4"></a>
