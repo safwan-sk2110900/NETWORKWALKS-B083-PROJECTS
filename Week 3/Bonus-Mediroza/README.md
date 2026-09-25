@@ -48,7 +48,7 @@ The assessment was carried out across four phases:
 
 This README is just a quick overview. For the complete write-up — findings, evidence, risk ratings, and recommendations — see the full report:
 
-**➡️ [Mediroza_Pentest_Report_Template.docx](./Mediroza_Pentest_Report.pdf)**
+**➡️ [Mediroza_Pentest_Report](./Mediroza_Pentest_Report.pdf)**
 
 ---
 
