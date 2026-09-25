@@ -22,6 +22,14 @@
 
 ---
 
+### 🔴 Bonus Phase — MEDIROZA HOSPITAL PENTEST
+**Tool:** `VARIOUS PENTESTING TOOLS`
+**Objective:** Fully conduct a web application penetration test on an authorized hospital website.
+
+**Path to Project:** **➡️ [Mediroza_Pentest](./Bonus-Mediroza)**
+
+---
+
 ## 📋 ENGAGEMENT DETAILS
 
 | Field | Value |
