@@ -21,7 +21,7 @@
 | Field | Value |
 |---|---|
 | 🟢 **Status** | `AUTHORIZED` |
-| 🔵 **Target** | `networkwalks.com HOME LAB (10.0.0.0/24)` |
+| 🔵 **Target** | `HOME LAB (10.0.0.0/24)` |
 | 🟣 **Date** | `30 SEPTEMBER 2026` |
 
 ---
@@ -40,7 +40,7 @@
 | **Analyst / Pentester** | Safwan Abdurahiman Kavil |
 | **Role / Title** | Cybersecurity Intern |
 | **Engagement Name** | B083-Networkwalks |
-| **Client / Target Scope** | `networkwalks.com` — Home Lab |
+| **Client / Target Scope** | `Home Lab` |
 | **Authorization on File** | Yes — Approval secured from `networkwalks.com` |
 | **Report Date** | 30 September 2026 |
 
@@ -130,7 +130,6 @@ Every change verified post-implementation (Test-NetConnection + authenticated re
 |---|---|
 | **Windows Update / Microsoft Security Update Guide** | Source of the vendor patches applied to resolve the DNS Server RCE, SMBv1 disclosure, and the Windows 10 missing-patch finding. |
 | **Windows Defender Firewall (netsh advfirewall / PowerShell NetFirewall cmdlets)** | Host- and domain-controller-level network segmentation — default-deny policy, scoped AD/DNS/SMB access, disabled remote management. |
-| **IIS Manager** | Closed the IIS path disclosure finding via custom error pages. |
 | **VirtualBox NAT Network Manager** | Reviewed and tightened port forwarding / loopback mappings exposing the hypervisor host to lab VMs. |
 | **Nessus** | Authenticated re-scan used to validate every remediation against the original Week 2 baseline. |
 
