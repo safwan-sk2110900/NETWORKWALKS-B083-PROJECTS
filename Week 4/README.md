@@ -225,16 +225,20 @@ All remediation described in this report was performed strictly within the autho
 
 | Screenshot |
 |---|
-| ![Patch](images/patch-1.png) |
-| ![Patch](images/patch-2.png) |
+| ![Patch](images/mitigate-1.png) |
+| ![Patch](images/mitigate-4.png) |
+| ![Patch](images/win10.png) |
 
 ### 📷 Firewall & Network Segmentation Hardening
 
 | Screenshot |
 |---|
-| ![Firewall](images/firewall-1.png) |
-| ![Firewall](images/firewall-2.png) |
-| ![Firewall](images/firewall-3.png) |
+| ![Firewall](images/host-1.png) |
+| ![Firewall](images/mitigate-2.png) |
+| ![Firewall](images/mitigate-3.png) |
+| ![Firewall](images/mitigate-5.png) |
+| ![Firewall](images/mitigate-6.png) |
+| ![Firewall](images/test-1.png) |
 
 ---
 
